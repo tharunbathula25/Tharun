@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Tharun AI Studio brand system.
+   Locked palette — matches the Instagram carousel system exactly.
+   Silver = facts. Crimson = problems. Gold = solutions and numbers that excite. */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ink-raised: #111111;
+  --color-ink-line: #232326;
+
+  --color-chrome: #e9e9ec;
+  --color-chrome-dim: #8e8e96;
+
+  --color-gold: #c9a84c;
+  --color-gold-bright: #e3c777;
+
+  --color-crimson: #c0392b;
+  --color-crimson-bright: #e74c3c;
+
+  --font-display: var(--font-bebas), "Impact", sans-serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-chrome);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Brushed-metal fill used for the monogram and the big statement words. */
+.text-metal {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #cfcfd6 38%,
+    #8b8b94 52%,
+    #e6e6ec 68%,
+    #a8a8b2 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gold-metal {
+  background: linear-gradient(180deg, #f0dda2 0%, #c9a84c 48%, #9c7f2f 62%, #e3c777 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Display headlines are billboards, not sentences. */
+.headline {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+}
+
+/* Scroll reveal — driven by components/Reveal.tsx */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
