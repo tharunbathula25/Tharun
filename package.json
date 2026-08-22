@@ -1,0 +1,33 @@
+{
+  "name": "vastrabharanam",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "assets:spec": "node scripts/gen_spec.mjs",
+    "assets:images": "python3 scripts/make_placeholders.py",
+    "assets:blur": "python3 scripts/make_blur.py",
+    "assets:pdf": "python3 scripts/make_measurement_pdf.py",
+    "assets": "npm run assets:spec && npm run assets:images && npm run assets:blur && npm run assets:pdf"
+  },
+  "dependencies": {
+    "lucide-react": "^0.454.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.35",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.3"
+  }
+}
